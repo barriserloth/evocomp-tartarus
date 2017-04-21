@@ -33,6 +33,7 @@ public class Grid {
     public final static int LL = 10;
     public final static int prog2 = 11;
     public final static int prog3 = 12;
+    public final static int TWOF = 13;
 
     // grid private vars
     private char[][] grid;

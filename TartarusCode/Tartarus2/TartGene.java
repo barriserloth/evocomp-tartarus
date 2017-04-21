@@ -93,7 +93,7 @@ public class TartGene extends GPGene {
          // assume evals left child when get(0)
          // assume evals right child when get(1)
          // almost definitely not doing this right atm
-         else if (val == 11){
+         else if (val == GRID.prog2){
            // evaluate left child
            ( (TartGene)get(0) ).evaluate(cfg, gp, os, out);
 
@@ -101,7 +101,7 @@ public class TartGene extends GPGene {
            ( (TartGene)get(1) ).evaluate(cfg, gp, os, out);
          }
 
-         else if (val == 12){
+         else if (val == GRID.prog3){
            // evaluate left child
            ( (TartGene)get(0) ).evaluate(cfg, gp, os, out);
 
@@ -110,6 +110,11 @@ public class TartGene extends GPGene {
 
            // evaluate right child?
            ( (TartGene)get(2) ).evaluate(cfg, gp, os, out);
+         }
+
+         // TWOF case (check two forward)
+         else if(val == GRID.TWOF){
+           result = cfg.dozerGrid.sensor(2,0);
          }
 
 
