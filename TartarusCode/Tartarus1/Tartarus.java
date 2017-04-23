@@ -56,7 +56,7 @@ class Tartarus extends GPRun {
         ns0.putNode(new GPNode(Grid.MIN, "min", 2));
         ns0.putNode(new GPNode(Grid.ITE, "ite", 3));
         ns0.putNode(new GPNode(Grid.RAND, "rand"));
-        ns0.putNode(new GPNode(Grid.TWOF, "twof");
+        ns0.putNode(new GPNode(Grid.TWOF, "twof"));
 
 	// ADF - Do NOT change
 	GPAdfNodeSet adfNs = new GPAdfNodeSet(1);

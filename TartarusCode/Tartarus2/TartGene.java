@@ -68,7 +68,7 @@ public class TartGene extends GPGene {
 
 	// sensor, evaluate left child if chosen square is empty,
 	// middle child if chosen square has a box, right child if chosen square is a wall
-        else if (val <=10) {
+        else if (val <=10 || val == 13) {
             int result = -1;
             if (val==Grid.UR)
                 result = cfg.dozerGrid.sensor(1, -1);
@@ -86,6 +86,9 @@ public class TartGene extends GPGene {
                 result = cfg.dozerGrid.sensor(0, 1);
             else if (val==Grid.LL)
                 result = cfg.dozerGrid.sensor(-1, 1);
+	    //two forward case (extra sensory info)
+	    else if (val==Grid.TWOF)
+		result = cfg.dozerGrid.sensor(2,0);
 
             ( (TartGene)get(result) ).evaluate(cfg, gp, os, out);
          }
@@ -93,7 +96,7 @@ public class TartGene extends GPGene {
          // assume evals left child when get(0)
          // assume evals right child when get(1)
          // almost definitely not doing this right atm
-         else if (val == GRID.prog2){
+         else if (val == Grid.prog2){
            // evaluate left child
            ( (TartGene)get(0) ).evaluate(cfg, gp, os, out);
 
@@ -101,7 +104,7 @@ public class TartGene extends GPGene {
            ( (TartGene)get(1) ).evaluate(cfg, gp, os, out);
          }
 
-         else if (val == GRID.prog3){
+         else if (val == Grid.prog3){
            // evaluate left child
            ( (TartGene)get(0) ).evaluate(cfg, gp, os, out);
 
@@ -110,11 +113,6 @@ public class TartGene extends GPGene {
 
            // evaluate right child?
            ( (TartGene)get(2) ).evaluate(cfg, gp, os, out);
-         }
-
-         // TWOF case (check two forward)
-         else if(val == GRID.TWOF){
-           result = cfg.dozerGrid.sensor(2,0);
          }
 
 
